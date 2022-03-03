@@ -108,11 +108,9 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' = {
       settings: {
         commandToExecute: 'sh install_docker.sh'
         fileUris: [
-          'https://extddosscr.blob.core.windows.net/scr/install_docker.sh?sp=r&se=2022-03-03T06:39:52Z&sv=2020-08-04&sr=b&sig=2vEV5cnLJf%2BoOVMZXJqHu4cW3Gva36ZMIK6hFQpJkg4%3D'
+          'https://raw.githubusercontent.com/romanrabodzei/ubuntu-vms-with-docker-bicep/main/install_docker.sh'
         ]
       }
     }
   }
 }
-
-output publicips string = pip.properties.ipAddress

@@ -4,7 +4,7 @@ param location string = deployment().location
 param vmAdmin string = 'azureadmin'
 @secure()
 param vmPassword string
-param amount int = 2
+param amount int
 
 var resourceGroupName = 'az-ddos-${location}-rg'
 
@@ -31,8 +31,4 @@ module vm 'modules/vm.bicep' = [for i in range(0, amount): {
     adminUsername: vmAdmin
     adminPassword: vmPassword
   }
-}]
-
-output publicIP array = [for i in range(0, amount): {
-  vmIp: vm[i].outputs.publicips
 }]
